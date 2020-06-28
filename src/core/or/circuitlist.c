@@ -342,6 +342,10 @@ circuit_set_circid_chan_helper(circuit_t *circ, int direction,
   } else {
     ++chan->num_p_circuits;
   }
+
+  log_info(LD_CUSTOM, "Change in status observed for channel - %d, number of "
+                      "circuits is now %d ", (chan->global_identifier),
+           chan->num_n_circuits);
 }
 
 /** Mark that circuit id <b>id</b> shouldn't be used on channel <b>chan</b>,
