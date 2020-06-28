@@ -118,7 +118,9 @@
 /** Bootstrap tracker. */
 #define LD_BTRACK    (UINT64_C(1)<<28)
 /** Message-passing backend. */
-#define LD_MESG      (UINT64_C(1)<<29)
+#define LD_MESG      (UINT64_C(1)<<28)
+/** Custom logging. */
+#define LD_CUSTOM      (UINT64_C(1)<<29)
 
 /** The number of log domains. */
 #define N_LOGGING_DOMAINS 30
