@@ -302,7 +302,7 @@ circuit_set_circid_chan_helper(circuit_t *circ, int direction,
   if (chan == NULL) {
     log_info(LD_CUSTOM,
              "Change in status observed for channel - %" PRIu64 " number"
-             " of circuits is : num_n_circuits %lu , num_p_circuits %lu ",
+             " of circuits is : num_n_circuits %u , num_p_circuits %u ",
              chan->global_identifier, chan->num_n_circuits,
              chan->num_p_circuits);
     return;
@@ -351,7 +351,7 @@ circuit_set_circid_chan_helper(circuit_t *circ, int direction,
 
   log_info(LD_CUSTOM,
            "Change in status observed for channel - %" PRIu64 " number"
-           " of circuits is : num_n_circuits %lu , num_p_circuits %lu ",
+           " of circuits is : num_n_circuits %u , num_p_circuits %u ",
            chan->global_identifier, chan->num_n_circuits, chan->num_p_circuits);
 }
 
