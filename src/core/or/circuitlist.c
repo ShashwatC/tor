@@ -292,6 +292,12 @@ circuit_set_circid_chan_helper(circuit_t *circ, int direction,
         --(old_chan->num_p_circuits);
       }
     }
+    log_info(LD_CUSTOM,
+             "Change in status observed for channel - %" PRIu64 " number"
+             " of circuits is : num_n_circuits %u , num_p_circuits %u ",
+             old_chan->global_identifier, old_chan->num_n_circuits,
+             old_chan->num_p_circuits);
+
   }
 
   /* Change the values only after we have possibly made the circuit inactive
@@ -299,14 +305,8 @@ circuit_set_circid_chan_helper(circuit_t *circ, int direction,
   *chan_ptr = chan;
   *circid_ptr = id;
 
-  if (chan == NULL) {
-    log_info(LD_CUSTOM,
-             "Change in status observed for channel - %" PRIu64 " number"
-             " of circuits is : num_n_circuits %u , num_p_circuits %u ",
-             chan->global_identifier, chan->num_n_circuits,
-             chan->num_p_circuits);
+  if (chan == NULL)
     return;
-  }
 
   /* now add the new one to the conn-circid map */
   search.circ_id = id;
